@@ -1,23 +1,21 @@
 :root {
-    font-size: 13px;
+    font-size: 12px;
     --text-primary: white;
     --text-secondary: white;
     --bg-primary: #1b1b1b;
     --bg-secondary: #161616;
     --accent-color: #eda6c4;
-    --transition-speed: 600ms;
+    --transition-speed: 500ms;
     --pfp-background: url('../img/flowers.jpg');
 }
 
-/*body::-webkit-scrollbar {*/
-/*    width: 0.5rem;*/
-/*}*/
-/*body::-webkit-scrollbar-track {*/
-/*    background: var(--bg-primary);*/
-/*}*/
-/*body::-webkit-scrollbar-thumb {*/
-/*    background: var(--accent-color);*/
-/*}*/
+* {
+    /*border: white 1px solid;*/
+}
+.navbar{
+    transition: width var(--transition-speed) ease;
+    z-index: 100;
+}
 .navbar {
     width: 5rem;
     height: 100vh;
@@ -55,6 +53,12 @@
 .nav-item img {
     width: 100%;
 }
+.link-text {
+    display: none;
+    color: transparent;
+    font-size: 1rem;
+}
+
 .nav-link {
     display: flex;
     align-items: center;
@@ -69,10 +73,7 @@
     min-width: 2rem;
     margin: 0 1.5rem;
 }
-.link-text {
-    display: none;
-    margin: 0 1.5rem;
-}
+
 .nav-link:hover {
     background-color: var(--bg-secondary);
 
@@ -107,17 +108,15 @@ main {
 }
 
 @media only screen and (min-width: 600px) {
-    .navbar{
-        transition: width var(--transition-speed) ease;
-    }
     .navbar:hover .profile-pic {
         background-color: #a8a4b0;
         /*transition: background-color var(--transition-speed) ease;*/
         transition: background-color var(--transition-speed) ease;
     }
-
     .navbar:hover .link-text {
         display: flex;
+        color: var(--text-primary);
+        transition-delay: 100ms;
     }
     .navbar:hover {
         width: 18rem;
@@ -125,7 +124,6 @@ main {
     .navbar:hover .profile-pic img{
         width: 100%;
         display: flex;
-
-        filter: drop-shadow(0 0 10px #3e4166);
+        filter: drop-shadow(0 -10px 10px #3e4166);
     }
 }
