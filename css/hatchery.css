@@ -1,0 +1,61 @@
+@keyframes wiggle {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(2px, 2px) rotate(2deg); }
+    50% { transform: translate(0, 0) rotate(0deg); }
+    75% { transform: translate(-2px, 2px) rotate(-2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+main *{
+    /*border: 1px black solid;*/
+    margin: 0;
+}
+
+body {
+}
+
+#container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.egg-card {
+    border: 2px white solid;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px -3px gray;
+    padding: 1rem;
+
+    .image {
+        margin: 0;
+        padding: 2rem;
+        overflow: hidden;
+        height: 86px;
+        display: flex;
+        justify-content: center;
+    }
+    .image img {
+        position: absolute;
+    }
+    .image .egg-base{
+        filter: drop-shadow(0 0 5px black);
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.egg-card:hover {
+    cursor: pointer;
+
+    .image img {
+        height: 85px;
+        transition: height var(--transition-speed) ease;
+        animation: wiggle 400ms infinite;
+    }
+}
